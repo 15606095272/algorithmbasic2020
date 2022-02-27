@@ -73,7 +73,7 @@ public class Code00_RandomArrayUtil {
             int[] arr1 = copyArray(arr);
             int[] arr2 = copyArray(arr);
             sort(arr1);
-            Code01_SelectSort.selectSort(arr2);
+            Code03_InsertSort.insertSort(arr2);
             if (!isEqual(arr1, arr2)) {
                 success = false;
                 printArray(arr1);
