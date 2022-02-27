@@ -57,8 +57,8 @@ public class Code00_RandomArrayUtil {
         if (arr == null) {
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int value : arr) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
