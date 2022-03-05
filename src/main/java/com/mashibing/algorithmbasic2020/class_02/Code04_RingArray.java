@@ -1,7 +1,5 @@
 package com.mashibing.algorithmbasic2020.class_02;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 public class Code04_RingArray {
 
     public static class MyQueue {
