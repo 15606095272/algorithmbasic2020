@@ -1,5 +1,7 @@
 package com.mashibing.algorithmbasic2020.class_01;
 
+import com.mashibing.algorithmbasic2020.class_03.Code01_MergeSort;
+
 import java.util.Arrays;
 
 public class Code00_RandomArrayUtil {
@@ -64,7 +66,7 @@ public class Code00_RandomArrayUtil {
     }
 
     public static void main(String[] args) {
-        int maxSize = 10;
+        int maxSize = 100;
         int maxValue = 100;
         int times = 500000;
         boolean success = true;
@@ -73,7 +75,7 @@ public class Code00_RandomArrayUtil {
             int[] arr1 = copyArray(arr);
             int[] arr2 = copyArray(arr);
             sort(arr1);
-            Code03_InsertSort.insertSort(arr2);
+            Code01_MergeSort.mergeSort2(arr2);
             if (!isEqual(arr1, arr2)) {
                 success = false;
                 printArray(arr1);

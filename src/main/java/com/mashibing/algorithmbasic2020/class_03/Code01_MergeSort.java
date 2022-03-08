@@ -15,8 +15,32 @@ public class Code01_MergeSort {
         }
         int mid = l + ((r - l) >> 1);
         process(arr, l, mid);
-        process(arr, mid, r);
+        process(arr, mid + 1, r);
         merge(arr, l, mid, r);
+    }
+
+    public static void mergeSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        int length = arr.length;
+        int mergeSize = 1;
+        while (mergeSize < length) {
+            int l = 0;
+            while (l < length) {
+                int mid = l + mergeSize - 1;
+                if (mid >= length) {
+                    break;
+                }
+                int r = Math.min(mid + mergeSize, length - 1);
+                merge(arr, l, mid, r);
+                l = r + 1;
+            }
+            if (mergeSize > length / 2) {
+                break;
+            }
+            mergeSize <<= 1;
+        }
     }
 
     public static void merge(int[] arr, int l, int m, int r) {
