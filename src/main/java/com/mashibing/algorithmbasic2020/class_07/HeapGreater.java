@@ -8,7 +8,7 @@ public class HeapGreater<T> {
 
     private Map<T, Integer> indexMap;
 
-    private Integer heapSize;
+    private int heapSize;
 
     private Comparator<T> comparator;
 
@@ -36,14 +36,14 @@ public class HeapGreater<T> {
     }
 
     public void push(T value) {
-        heap.set(heapSize, value);
+        heap.add(value);
         indexMap.put(value, heapSize);
         heapInsert(heapSize++);
     }
 
     public T pop() {
         T ans = heap.get(0);
-        heap.set(0, heap.get(--heapSize));
+        swap(0, heapSize - 1);
         indexMap.remove(ans);
         heap.remove(--heapSize);
         heapify(0);
@@ -88,7 +88,7 @@ public class HeapGreater<T> {
             int best = (left + 1) < heapSize && comparator.compare(heap.get(left + 1), heap.get(left)) < 0
                     ? left + 1 : left;
 
-            if (comparator.compare(heap.get(best), heap.get(index)) < 0) {
+            if (comparator.compare(heap.get(best), heap.get(index)) > 0) {
                 break;
             }
             swap(best, index);
@@ -101,7 +101,7 @@ public class HeapGreater<T> {
         T o1 = heap.get(i);
         T o2 = heap.get(j);
         heap.set(i, o2);
-        heap.set(j, o2);
+        heap.set(j, o1);
         indexMap.put(o1, j);
         indexMap.put(o2, i);
     }
